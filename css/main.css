@@ -1,4 +1,63 @@
-* {
-    padding: 0;
-    margin: 0;
+:root {
+  --color-white: #fff;
+  --color-grey: #eee;
 }
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(60.64deg, #05668D 0%, #028090 32.81%, #00A896 65.63%, #02C39A 100%);
+  color: var(--color-white);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+
+.main {
+  padding: 1rem;
+}
+
+.main__list__item {
+  list-style-type: none;
+}
+
+.main__list__item--price {
+  list-style-type: none;
+}
+
+.logo {
+  display: block;
+  margin: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.hidden {
+  display: none;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 300px;
+  width: 300px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 300px;
+  width: 300px;
+}
+/*# sourceMappingURL=main.css.map */
