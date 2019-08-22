@@ -13,8 +13,8 @@
     --s6: calc(var(--s5)*var(--ratio));
   }
   $bp-sm: 600px;
-  $bp-md: 1000px;
-
+  $bp-md: 950px;
+  $bp-lg: 1300px;
   
   * {
     box-sizing: border-box;
@@ -54,6 +54,13 @@
     padding: 1rem;
     @media screen and (min-width: $bp-sm) {
         padding: 3rem;
+    }
+    @media screen and (min-width: $bp-lg) {
+        grid-template-areas: 
+        "main pic"
+        "sec map";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
     }
   
   
@@ -124,10 +131,8 @@
   
   .secondary__section {
       width: 30rem;
-      margin: var(--s4) 0;
-      @media screen and (min-width: $bp-sm) {
-        margin-left: 10rem;
-}
+      margin: var(--s4) auto;
+      
   }
   
   .secondary__heading {
@@ -154,19 +159,23 @@
       background: var(--color-white);
       border-radius: var(--s0);
       width: 30rem;
-      @media screen and (min-width: $bp-sm) {
-            margin-right: 0;
-            margin-left: 0;
-    }
+      
   }
   
   .hidden {
     display: none;
   }
 
+  .pic--massage {
+      margin: 10rem;
+  }
   .img--massage {
-      @media screen and (min-width: $bp-md) {
-          
+      @media screen and (min-width: $bp-lg) {
+          display: inline-block;
+          max-width: 100%;
+          height: auto;
+          width: 500px;
+          border-radius: var(--s0);
       }
   }
   

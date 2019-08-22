@@ -29,7 +29,7 @@ html {
   font-size: 62.5%;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 950px) {
   html {
     font-size: 75%;
   }
@@ -59,6 +59,16 @@ body {
 @media screen and (min-width: 600px) {
   .main {
     padding: 3rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .main {
+        grid-template-areas: "main pic" "sec map";
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
   }
 }
 
@@ -128,13 +138,7 @@ body {
 
 .secondary__section {
   width: 30rem;
-  margin: var(--s4) 0;
-}
-
-@media screen and (min-width: 600px) {
-  .secondary__section {
-    margin-left: 10rem;
-  }
+  margin: var(--s4) auto;
 }
 
 .secondary__heading {
@@ -162,15 +166,22 @@ body {
   width: 30rem;
 }
 
-@media screen and (min-width: 600px) {
-  .cta {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
 .hidden {
   display: none;
+}
+
+.pic--massage {
+  margin: 10rem;
+}
+
+@media screen and (min-width: 1300px) {
+  .img--massage {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    width: 500px;
+    border-radius: var(--s0);
+  }
 }
 
 .mapouter {
