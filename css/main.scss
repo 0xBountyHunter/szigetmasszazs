@@ -56,6 +56,8 @@
         padding: 3rem;
     }
     @media screen and (min-width: $bp-lg) {
+        padding: 5rem;
+        display: grid;
         grid-template-areas: 
         "main pic"
         "sec map";
@@ -167,7 +169,11 @@
   }
 
   .pic--massage {
-      margin: 10rem;
+      margin-left: 10rem;
+      display: grid;
+      align-self: center;
+      justify-self: center;
+      grid-area: pic;
   }
   .img--massage {
       @media screen and (min-width: $bp-lg) {
@@ -190,13 +196,17 @@
   
   .mapouter, .gmap_canvas, .mapinner {
       margin: 0 auto;
-      height: 500px;
-      width: 300px;
-      max-width: 1000px;
+      height: 30rem;
+      width: 30rem;
       border-radius: var(--s0);
       @media screen and (min-width: $bp-sm) {
           width: 85vw;
+          max-width: 750px;
       }
+      @media screen and (min-width: $bp-lg) {
+            display: grid;
+            align-self: center;
+    }
       
     }
   

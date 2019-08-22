@@ -64,6 +64,9 @@ body {
 
 @media screen and (min-width: 1300px) {
   .main {
+    padding: 5rem;
+    display: -ms-grid;
+    display: grid;
         grid-template-areas: "main pic" "sec map";
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
@@ -171,7 +174,14 @@ body {
 }
 
 .pic--massage {
-  margin: 10rem;
+  margin-left: 10rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  grid-area: pic;
 }
 
 @media screen and (min-width: 1300px) {
@@ -195,15 +205,24 @@ body {
 
 .mapouter, .gmap_canvas, .mapinner {
   margin: 0 auto;
-  height: 500px;
-  width: 300px;
-  max-width: 1000px;
+  height: 30rem;
+  width: 30rem;
   border-radius: var(--s0);
 }
 
 @media screen and (min-width: 600px) {
   .mapouter, .gmap_canvas, .mapinner {
     width: 85vw;
+    max-width: 750px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .mapouter, .gmap_canvas, .mapinner {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-row-align: center;
+        align-self: center;
   }
 }
 /*# sourceMappingURL=main.css.map */
