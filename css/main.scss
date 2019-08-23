@@ -2,6 +2,7 @@
     --color-white: #fff;
     --color-grey: #eee;
     --color-highlight: #05668D;
+    --color-black: #000;
     --measure: 60ch;
     --ratio: 1.5;
     --s0: 1rem;
@@ -14,8 +15,13 @@
   }
   $bp-sm: 600px;
   $bp-md: 950px;
-  $bp-lg: 1300px;
+  $bp-lg: 1279px;
+  $bp-hg: 1650px;
   
+
+
+
+
   * {
     box-sizing: border-box;
     padding: 0;
@@ -32,18 +38,29 @@
       @media screen and (min-width: $bp-md) {
           font-size: 75%;
       }
+      @media screen and (min-width: $bp-hg) {
+      }
   }
   
   html, body {
       max-width: 100%;
       overflow-x: hidden;
   }
+
+  
   
   body {
     background: linear-gradient(90deg, #05668D 0%, #028090 50%, #00A896 75%, #02C39A 100%);
     color: var(--color-white);
+    overflow: visible;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
+    margin: 0 auto;
+    max-width: 1500px;
+    padding-bottom: 4rem;
+    @media screen and (min-width: $bp-md) {
+        background: linear-gradient(90deg, #05668D 0%, #028090 33.33%, #00A896 67.77%, #02C39A 100%)
+    }
   }
   
   .header {
@@ -52,19 +69,34 @@
   
   .main {
     padding: 1rem;
+    overflow: visible;
+    @media screen and (min-width: $bp-sm) {
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.3);
+    }
+
+    @media screen and (min-width: $bp-lg) {
+        border-radius: 3rem;
+    }
+    
     @media screen and (min-width: $bp-sm) {
         padding: 3rem;
+        padding-bottom: 2rem;
     }
     @media screen and (min-width: $bp-lg) {
         padding: 5rem;
+        padding-bottom: 2rem;
         display: grid;
         grid-template-areas: 
         "main pic"
-        "sec map";
+        "sec map"
+        "ind con";
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
     }
-  
+  &__section {
+
+  }
   
   &__heading {
     font-size: var(--s3);
@@ -80,10 +112,13 @@
   
   &__list {
     margin: var(--s2) auto;
-    font-size: var(--s1);
-
+    font-size: calc(var(--s1));
+    color: var(--color-grey);
     &__group {
         margin: var(--s1) 0;
+        @media screen and (min-width: $bp-sm) {
+            margin: var(--s0) 0;
+        }
     }
 
     &__item {
@@ -98,11 +133,11 @@
 
     &--time-price::before {
         content: "";
-      padding-right: calc(var(--s0) + 5px);
+      padding-right: calc(var(--s0));
     }
     
     &--price {
-        margin-left: var(--s4);
+        margin-left: var(--s3);
     }
 
     &--time-price {
@@ -134,25 +169,28 @@
   .secondary__section {
       width: 30rem;
       margin: var(--s4) auto;
-      
   }
   
   .secondary__heading {
       display: block;
       font-size: var(--s2);
       text-align: center;
+      line-height: 1.25;
   }
   
   .cta, .tel--info {
       display: block;
       text-align: center;
-      
   }
 
-  .cta {
+  .tel--info {
+      color: var(--color-grey);
+  }
+
+  .cta:link,
+  .cta:visited {
       display: block;
       margin: var(--s0) auto;
-      margin-bottom: 0.5rem;
       padding: 0.5rem 1rem;
       text-decoration: none;
       font-size: calc(var(--s2) + 0.5rem);
@@ -161,53 +199,85 @@
       background: var(--color-white);
       border-radius: var(--s0);
       width: 30rem;
-      
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+      transition: background .3s;
+  }
+
+  .cta:hover,
+  .cta:active {
+    display: block;
+    margin: var(--s0) auto;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: calc(var(--s2) + 0.5rem);
+    font-weight: 700;
+    color: var(--color-white);
+    background: #022634;
+    border-radius: var(--s0);
+    width: 30rem;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
   }
   
   .hidden {
     display: none;
   }
 
-  .pic--massage {
-      margin-left: 10rem;
+  .pic {
       display: grid;
-      align-self: center;
-      justify-self: center;
+      justify-self: right;
+      align-self: flex-start;
       grid-area: pic;
+      
   }
-  .img--massage {
+  .img {
       @media screen and (min-width: $bp-lg) {
           display: inline-block;
           max-width: 100%;
           height: auto;
-          width: 500px;
+          width: calc(200px + 10vw);
           border-radius: var(--s0);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
       }
   }
   
-  .mapouter {
-    position: relative;
-  }
+
   
-  .gmap_canvas {
-    overflow: hidden;
-    background: none !important;
-  }
-  
+
   .mapouter, .gmap_canvas, .mapinner {
       margin: 0 auto;
       height: 30rem;
       width: 30rem;
       border-radius: var(--s0);
+      
+      
       @media screen and (min-width: $bp-sm) {
           width: 85vw;
-          max-width: 750px;
+          max-width: calc(45rem + 10vw);
       }
       @media screen and (min-width: $bp-lg) {
+            margin-top: 1rem;
             display: grid;
-            align-self: center;
+            align-self: end;
+            justify-self: right;
     }
       
     }
-  
+
+.mapouter {
+    position: relative;
+    }
     
+    .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+    }
+
+.tertiary__section--1, .tertiary__section--2 {
+    margin-top: 4rem;
+}
+
+.tertiary__heading {
+    margin-left: var(--s3);
+    font-size: calc(var(--s2));
+}
