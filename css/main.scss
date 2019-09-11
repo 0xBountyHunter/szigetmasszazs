@@ -1,9 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 :root {
     --color-white: #fff;
     --color-grey: #ccc;
     --color-highlight: #05668D;
     --color-black: #000;
-    --measure: 70ch;
+    --measure: 60ch;
     --ratio: 1.5;
     --s0: 1rem;
     --s1: calc(var(--s0)*var(--ratio));
@@ -12,301 +19,209 @@
     --s4: calc(var(--s3)*var(--ratio));
     --s5: calc(var(--s4)*var(--ratio));
     --s6: calc(var(--s5)*var(--ratio));
-  }
-  $bp-sm: 600px;
-  $bp-md: 950px;
-  $bp-lg: 1279px;
-  $bp-hg: 2500px;
-  $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-
-
-
-
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    max-width: (--measure);
-  }
-  
-  html, body, div, header, nav, main, footer, .main {
-    max-width: none;
-  }
-  
-  html {
-      font-size: 60%;
-      @media screen and (min-width: $bp-md) {
-          font-size: 70%;
-      }
-      @media screen and (min-width: $bp-lg) {
-        font-size: 80%;
-    }
-      @media screen and (min-width: $bp-hg) {
-          font-size: 90%;
-      }
-  }
-  
-  html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-  }
-
-  
-  
-  body {
-    background: linear-gradient(90deg, #05668D 0%, #028090 50%, #00A896 75%, #02C39A 100%);
-    color: var(--color-white);
-    overflow: visible;
-    font-family: 'Lato', sans-serif;
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: 1500px;
-    padding-bottom: 4rem;
-  }
-  
-  .header {
-      margin-top: 2rem;
-  }
-  
-  .main {
-    padding: 1rem;
-    overflow: visible;
-    background: rgba(0, 0, 0, 0.1);
-    @media screen and (min-width: $bp-sm) {
-        
-        box-shadow: 2rem 2rem 4rem rgba(0, 0, 0, 0.3);
     }
 
-    @media screen and (min-width: $bp-lg) {
-        border-radius: 3rem;
-    }
-    
-    @media screen and (min-width: $bp-sm) {
-        padding: 3rem;
-        padding-bottom: 2rem;
-    }
-    @media screen and (min-width: $bp-lg) {
-        padding: 5rem;
-        padding-bottom: 2rem;
-        display: grid;
-        grid-template-areas: 
-        "main pic"
-        "sec map"
-        "ind con"
-        "plus plus";
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-    }
-  &__section {
-    justify-self: center;
-    align-self: center;
-  }
-  
-  &__heading {
-    font-size: var(--s3);
-    line-height: 1.2;
-    font-weight: 700;
-    text-shadow: $text-shadow;
-    &--next {
-        font-size: var(--s2);
-        font-weight: 700;
-        text-shadow: $text-shadow;
-    }
-  }
+$font-sans: 'Nunito', 'Helvetica', 'Arial', sans-serif;
+$font-display: 'Lobster';
+$bp-xm: 600px;
+$bp-sm: 900px;
+$bp-md: 1200px;
+$bp-lg: 1500px;
 
-  
-  &__list {
-    margin: var(--s1) auto;
-    font-size: calc(var(--s1));
-    color: var(--color-grey);
-    &__group {
-        margin: var(--s1) 0;
-        @media screen and (min-width: $bp-sm) {
-            margin: var(--s0) 0;
-        }
-    }
-
-    &__item {
-     padding: 0 var(--s2);
-        list-style-type: none;
-
-        &::before {
-            content: "-";
-            padding-right: var(--s0);
-            color: var(--color-grey);
-        }
-
-    &--time-price::before {
+@mixin line {
+    @media screen and (min-width: $bp-xm) {
+        position: absolute;
         content: "";
-      padding-right: calc(var(--s0));
+        top: 2.5rem;
+        left: 1px;
+        width: 3rem;
+        height: .2rem;
     }
     
-    &--price {
-        margin-left: var(--s3);
-    }
+}
 
-    &--time-price {
-        @media screen and (min-width: $bp-sm) {
-            position: relative;
-            top: -2.3rem;
-            left: 30rem;
+html {
+    @media screen and (min-width: $bp-sm) {
+        font-size: 110%;
+    }
+    @media screen and (min-width: $bp-lg) {
+        font-size: 120%;
+    }
+}
+
+body {
+    font-family: $font-sans;
+    color: var(--color-white);
+    line-height: 1.5;
+    @media screen and (min-width: $bp-md) {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50vh 50vh;
+    }
+}
+
+.main {
+    padding: 2rem 0;
+    @media screen and (min-width: $bp-xm) {
+        padding: 2rem;
+    }
+    @media screen and (min-width: $bp-md) {
+        padding: 3rem;
+    }
+    background: linear-gradient(180deg, #05668D 0%, #028090 100%);
+    .lists {
+        
+        display: flex;
+        align-items: flex-end;
+        li {
+            list-style-type: none;
         }
-        &--1 {
-            @media screen and (min-width: $bp-sm) {
-                top: -5.5rem;
+        .time__list {
+            margin-right: 0.5rem;
+            @media screen and (min-width: $bp-xm) {
+                margin-left: 3rem;
+            }
+        }
+        .price__list {
+            @media screen and (min-width: $bp-xm) {
+                margin-left: 3rem;
             }
         }
     }
+    &__heading {
+        line-height: 1.25;
+        margin-bottom: 1.5rem;
+        font-family: $font-display;
+        font-size: var(--s1);
+        position: relative;
+        &::after {
+            @include line;
+            background-color: var(--color-white);
+        }
     }
-  }
+    .logo {
+        font-family: $font-display;
+        color: var(--color-white);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 1rem;
+    }
 }
-  
-  .logo {
-  font-size: var(--s1);
-    display: block;
-    margin: var(--s0);
-    text-align: center;
-    text-decoration: none;
-    color: var(--color-white);
-    font-weight: 700;
-    text-shadow: $text-shadow;
-  }
-  
-  .secondary__section {
-      width: 30rem;
-      margin: var(--s4) auto;
-  }
-  
-  .secondary__heading {
-      display: block;
-      font-size: var(--s2);
-      text-align: center;
-      line-height: 1.25;
-      text-shadow: $text-shadow;
-  }
-  
-  .cta, .tel--info {
-      display: block;
-      text-align: center;
-  }
-
-  .tel--info {
-      color: var(--color-grey);
-  }
-
-  .cta:link,
-  .cta:visited {
-      display: block;
-      margin: var(--s0) auto;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      font-size: calc(var(--s2) + 0.5rem);
-      font-weight: 700;
-      color: var(--color-highlight);
-      background: var(--color-white);
-      border-radius: var(--s0);
-      width: 30rem;
-      text-shadow: $text-shadow;
-      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-      transition: background .3s, box-shadow .3s, transform .3s;
-  }
-
-  .cta:hover,
-  .cta:active {
-    display: block;
-    margin: var(--s0) auto;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    font-size: calc(var(--s2) + 0.5rem);
-    font-weight: 700;
-    color: var(--color-white);
-    background: #022634;
-    border-radius: var(--s0);
-    text-shadow: $text-shadow;
-    transform: scale(1.2);
-    width: 30rem;
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
-  }
-  
-  .hidden {
-    display: none;
-  }
-
-  .pic {
-      display: grid;
-      justify-self: right;
-      align-self: flex-start;
-      grid-area: pic;
-      
-  }
-  .img {
-      @media screen and (min-width: $bp-lg) {
-          display: inline-block;
-          max-width: 100%;
-          height: auto;
-          width: calc(200px + 10vw);
-          border-radius: var(--s0);
-          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
-      }
-  }
-  
-
-  
-
-  .mapouter, .gmap_canvas, .mapinner {
-      margin: 0 auto;
-      height: 30rem;
-      width: 30rem;
-      border-radius: var(--s0);
-      
-      
-      @media screen and (min-width: $bp-sm) {
-          width: 85vw;
-          max-width: calc(45rem + 10vw);
-      }
-      @media screen and (min-width: $bp-lg) {
-            margin-top: 1rem;
-            display: grid;
-            align-self: end;
-            justify-self: right;
+.secondary {
+    padding: 2rem 0;
+    color: var(--color-highlight);
+    @media screen and (min-width: $bp-xm) {
+        padding: 2rem;
     }
-      
-    }
-
-.mapouter {
-    position: relative;
-    }
-    
-    .gmap_canvas {
-    overflow: hidden;
-    background: none !important;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-.tertiary__section--1, .tertiary__section--2 {
-    margin-top: 4rem;
-}
-
-.tertiary__heading {
-    margin-left: var(--s3);
-    font-size: calc(var(--s2));
-    text-shadow: $text-shadow;
-}
-
-.tertiary__para {
-    margin-top: var(--s1);
-    font-size: var(--s1);
-    color: var(--color-grey);
-}
-
-.tertiary__section--3 {
-    padding-top: 3rem;
-    padding-bottom: 2rem;
-    max-width: (var(--measure));
-    grid-area: plus;
-    display: block;
     @media screen and (min-width: $bp-md) {
-        margin: 0 auto;
+        padding: 3rem;
+    }
+    &__heading {
+        font-size: var(--s1);
+        font-family: $font-display;
+        margin-bottom: 1.5rem;
+        position: relative;
+        &::after {
+            @include line;
+            background-color: var(--color-highlight);
+        }
+        
+        @media screen and (min-width: $bp-md) {
+            margin-bottom: 3rem;
+        }
+        &--2 {
+            line-height: 1.25;
+        }
     }
     
+    &__section {
+        @media screen and (min-width: $bp-lg) {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        }
+        &--1 {
+            
+        }
+        &--2 {
+            .pic {
+                width: 10rem;
+                .img {
+                    width: 100%;
+                }
+            }
+            display: none;
+            @media screen and (min-width: $bp-lg) {
+                display: block;
+                
+            }
+        }
+    }
+    .cta, .tel--info {
+        display: block;
+        font-size: .8rem;
+    }
+    .cta:link, .cta:visited {
+        color: var(--color-white);
+        background-color: var(--color-highlight);
+        text-decoration: none;
+        margin: 1rem 0;
+        width: 15rem;
+        padding: .5rem 1rem;
+        font-size: var(--s1);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        margin-bottom: 1rem;
+        border-radius: 3px;
+        text-align: center;
+        transition: color .3s, background-position .3s;
+        transform-origin: center left;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #009989 50%);
+        background-size: 220%;
+    }
+    .cta:hover, .cta:active {
+        color: var(--color-white);
+        transform-origin: center left;
+        background-position: 100%;
+    }
+}
+
+.tertiary {
+    background: linear-gradient(180deg, #028090 0%, #009989 100%);
+    padding: 2rem 0;
+    @media screen and (min-width: $bp-xm) {
+        padding: 2rem;
+    }
+    @media screen and (min-width: $bp-md) {
+        padding: 3rem;
+    }
+    &__heading {
+        line-height: 1.25;
+        font-family: $font-display;
+        margin-bottom: 1.5rem;
+        position: relative;
+        &::after {
+            @include line;
+            background-color: var(--color-white);
+        }
+    }
+    .para {
+        max-width: var(--measure);
+    }
+}
+
+.map {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem .5rem 0;
+    @media screen and (min-width: $bp-xm) {
+        padding: 2rem 0;
+    }
+
+    &__iframe {
+        margin: 0 auto;
+        @media screen and (min-width: $bp-xm) {
+            width: 32.5rem;
+        }
+    }
+     
 }
